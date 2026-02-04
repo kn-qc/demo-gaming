@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Demo Mobile app</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%237c3aed'/%3E%3Cpath d='M20 40h24v-4H20v4zm0-14h24v-4H20v4z' fill='white'/%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+    />
+  </head>
+  <body>
+    <div id="app" class="app-shell">
+      <header class="app-header">
+        <div>
+          <h1>Demo Mobile app</h1>
+        </div>
+        <label class="theme-toggle">
+          <input type="checkbox" v-model="isDark" @change="toggleTheme" />
+          <span class="toggle-track">
+            <span class="toggle-thumb"></span>
+          </span>
+          <span class="toggle-label">{{ isDark ? 'Dark' : 'Light' }}</span>
+        </label>
+      </header>
+
+      <section class="balance-card">
+        <div>
+          <p class="muted">Account balance</p>
+          <h2>$24.80</h2>
+        </div>
+        <button class="primary" @click="showToast('This is a gaming demo. Tap Games to continue.')">
+          Top up
+        </button>
+      </section>
+
+      <section class="section-grid">
+        <button
+          v-for="item in sections"
+          :key="item.id"
+          class="section-card"
+          :class="{ 'gaming-card': item.id === 'games' }"
+          @click="handleSectionClick(item)"
+        >
+          <span class="icon">{{ item.icon }}</span>
+          <div>
+            <h3>{{ item.title }}</h3>
+            <p>{{ item.subtitle }}</p>
+          </div>
+        </button>
+      </section>
+
+      <section class="promo-banner">
+        <div>
+          <h3>About Gaming</h3>
+          <p class="muted">Перейти на сайт QazCode чтобы узнать больше</p>
+        </div>
+        <button class="secondary" @click="openGamesModal" aria-label="Open Games">
+          ↗
+        </button>
+      </section>
+
+      <footer class="bottom-nav">
+        <button @click="showToast('This is a gaming demo. Tap Games to continue.')">Home</button>
+        <button @click="showToast('This is a gaming demo. Tap Games to continue.')">Payments</button>
+        <button @click="showToast('This is a gaming demo. Tap Games to continue.')">Support</button>
+      </footer>
+
+      <div v-if="toast" class="toast">{{ toast }}</div>
+
+      <div v-if="showModal" class="modal-overlay" @click.self="closeModal">
+        <div class="modal">
+          <div class="modal-header">
+            <h2>Enter player name</h2>
+            <button class="icon-btn" @click="closeModal">✕</button>
+          </div>
+          <p class="muted">Your player name will be used as identifier</p>
+          <label class="field">
+            Player name
+            <input
+              v-model.trim="playerName"
+              type="text"
+              placeholder="e.g. SkyHero"
+            />
+          </label>
+          <p v-if="error" class="error">{{ error }}</p>
+          <div class="modal-actions">
+            <button class="secondary" @click="closeModal">Cancel</button>
+            <button class="primary" @click="submitName">Continue</button>
+          </div>
+          <div v-if="authUrl" class="auth-preview">
+            <p class="muted">SSO URL preview</p>
+            <a :href="authUrl" target="_blank" rel="noreferrer">{{ authUrl }}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
