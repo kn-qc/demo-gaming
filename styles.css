@@ -64,6 +64,11 @@ body.theme-light {
   gap: 12px;
 }
 
+.app-header h1 {
+  font-size: 1.4rem;
+  white-space: nowrap;
+}
+
 .theme-toggle {
   display: inline-flex;
   align-items: center;
