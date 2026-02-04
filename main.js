@@ -47,7 +47,11 @@ createApp({
       error: '',
       toast: '',
       toastTimeout: null,
+      isDark: false,
     };
+  },
+  mounted() {
+    this.applyTheme();
   },
   methods: {
     handleSectionClick(item) {
@@ -77,6 +81,13 @@ createApp({
       const encoded = encodeURIComponent(this.playerName);
       this.authUrl = `https://kyivstar-gaming-test.net/api/v1/intermediate/token?msisdn=${encoded}`;
       window.open(this.authUrl, '_blank', 'noopener');
+    },
+    toggleTheme() {
+      this.applyTheme();
+    },
+    applyTheme() {
+      document.body.classList.toggle('theme-dark', this.isDark);
+      document.body.classList.toggle('theme-light', !this.isDark);
     },
     showToast(message) {
       this.toast = message;
