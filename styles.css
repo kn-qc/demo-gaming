@@ -168,6 +168,11 @@ body.theme-light {
   animation: glow 3s ease-in-out infinite;
 }
 
+body.theme-light .gaming-card {
+  background: radial-gradient(circle at top, #ede9fe, #c7d2fe 55%, #a5b4fc 100%);
+  border: 1px solid rgba(124, 58, 237, 0.45);
+}
+
 .gaming-card::after {
   content: '';
   position: absolute;
