@@ -12,8 +12,8 @@
   --card: #ffffff;
   --card-strong: #eef1f7;
   --border: rgba(17, 19, 26, 0.12);
-  --accent: #7c3aed;
-  --accent-strong: #5b21b6;
+  --accent: #aade3f;
+  --accent-strong: #7fbf2a;
   --shadow: 0 20px 40px rgba(17, 19, 26, 0.12);
 }
 
@@ -32,8 +32,8 @@ body.theme-dark {
   --card: #151b2d;
   --card-strong: #1d2540;
   --border: rgba(255, 255, 255, 0.08);
-  --accent: #7c3aed;
-  --accent-strong: #a78bfa;
+  --accent: #aade3f;
+  --accent-strong: #7fbf2a;
   --shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
 }
 
@@ -44,8 +44,8 @@ body.theme-light {
   --card: #ffffff;
   --card-strong: #eef1f7;
   --border: rgba(17, 19, 26, 0.12);
-  --accent: #7c3aed;
-  --accent-strong: #5b21b6;
+  --accent: #aade3f;
+  --accent-strong: #7fbf2a;
   --shadow: 0 20px 40px rgba(17, 19, 26, 0.12);
 }
 
@@ -242,6 +242,14 @@ body.theme-light .gaming-card {
 .secondary {
   background: var(--card-strong);
   color: var(--text);
+}
+
+.promo-link {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
 }
 
 .muted {
