@@ -56,8 +56,7 @@ createApp({
   methods: {
     handleSectionClick(item) {
       if (item.id === 'games') {
-        const theme = this.isDark ? 'dark' : 'light';
-        window.open(`https://kyivstar-gaming-test.net/?theme=${theme}`, '_blank', 'noopener');
+        this.openGamesModal();
       } else {
         this.showToast('This is a gaming demo. Tap Games to continue.');
       }
@@ -79,8 +78,8 @@ createApp({
       }
 
       this.error = '';
-      const encoded = encodeURIComponent(this.playerName);
-      this.authUrl = `https://kyivstar-gaming-test.net/api/v1/intermediate/token?msisdn=${encoded}`;
+      const theme = this.isDark ? 'dark' : 'light';
+      this.authUrl = `https://kyivstar-gaming-test.net/?theme=${theme}`;
       window.open(this.authUrl, '_blank', 'noopener');
     },
     toggleTheme() {
