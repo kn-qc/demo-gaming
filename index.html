@@ -76,32 +76,6 @@
 
       <div v-if="toast" class="toast">{{ toast }}</div>
 
-      <div v-if="showModal" class="modal-overlay" @click.self="closeModal">
-        <div class="modal">
-          <div class="modal-header">
-            <h2>Enter player name</h2>
-            <button class="icon-btn" @click="closeModal">✕</button>
-          </div>
-          <p class="muted">Your player name will be used as identifier</p>
-          <label class="field">
-            Player name
-            <input
-              v-model.trim="playerName"
-              type="text"
-              placeholder="e.g. SkyHero"
-            />
-          </label>
-          <p v-if="error" class="error">{{ error }}</p>
-          <div class="modal-actions">
-            <button class="secondary" @click="closeModal">Cancel</button>
-            <button class="primary" @click="submitName">Continue</button>
-          </div>
-          <div v-if="authUrl" class="auth-preview">
-            <p class="muted">Gaming site preview</p>
-            <a :href="authUrl" target="_blank" rel="noreferrer">{{ authUrl }}</a>
-          </div>
-        </div>
-      </div>
     </div>
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>

@@ -41,10 +41,6 @@ createApp({
           icon: '✈️',
         },
       ],
-      showModal: false,
-      playerName: '',
-      authUrl: '',
-      error: '',
       toast: '',
       toastTimeout: null,
       isDark: false,
@@ -56,31 +52,11 @@ createApp({
   methods: {
     handleSectionClick(item) {
       if (item.id === 'games') {
-        this.openGamesModal();
+        const theme = this.isDark ? 'dark' : 'light';
+        window.location.href = `https://demo.qazcode.games/auth?lang=en&theme=${theme}`;
       } else {
         this.showToast('This is a gaming demo. Tap Games to continue.');
       }
-    },
-    openGamesModal() {
-      this.showModal = true;
-      this.error = '';
-    },
-    closeModal() {
-      this.showModal = false;
-      this.playerName = '';
-      this.error = '';
-      this.authUrl = '';
-    },
-    submitName() {
-      if (!this.playerName) {
-        this.error = 'Please enter a player name.';
-        return;
-      }
-
-      this.error = '';
-      const theme = this.isDark ? 'dark' : 'light';
-      this.authUrl = `https://kyivstar-gaming-test.net/?theme=${theme}`;
-      window.open(this.authUrl, '_blank', 'noopener');
     },
     toggleTheme() {
       this.applyTheme();
