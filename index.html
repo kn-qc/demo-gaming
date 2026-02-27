@@ -76,6 +76,30 @@
 
       <div v-if="toast" class="toast">{{ toast }}</div>
 
+      <div v-if="showDesktopDialog" class="modal-overlay" @click.self="closeDesktopDialog">
+        <div class="modal">
+          <div class="modal-header">
+            <h2>Desktop notice</h2>
+            <button class="icon-btn" @click="closeDesktopDialog">✕</button>
+          </div>
+          <p class="muted">For the best experience, please open this page in your mobile browser📱</p>
+
+          <div class="modal-actions modal-actions-stretch">
+            <button class="secondary" @click="showQrCode">Open on Mobile</button>
+            <button class="primary" @click="continueAnyway">Continue anyway</button>
+          </div>
+
+          <div v-if="showQr" class="qr-wrap">
+            <img
+              class="qr-image"
+              :src="qrCodeUrl"
+              alt="QR code for app.qazcode.games"
+            />
+            <p class="muted">Scan to open https://app.qazcode.games on your phone.</p>
+          </div>
+        </div>
+      </div>
+
     </div>
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>

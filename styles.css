@@ -332,6 +332,31 @@ body.theme-light .gaming-card {
   justify-content: flex-end;
 }
 
+.modal-actions-stretch {
+  justify-content: stretch;
+}
+
+.modal-actions-stretch button {
+  flex: 1;
+}
+
+.qr-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+}
+
+.qr-image {
+  width: 180px;
+  height: 180px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: #fff;
+  padding: 8px;
+}
+
 .auth-preview {
   word-break: break-all;
   font-size: 0.8rem;

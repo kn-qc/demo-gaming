@@ -44,6 +44,10 @@ createApp({
       toast: '',
       toastTimeout: null,
       isDark: false,
+      showDesktopDialog: false,
+      showQr: false,
+      pendingGamesUrl: '',
+      qrCodeUrl: 'https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https%3A%2F%2Fapp.qazcode.games',
     };
   },
   mounted() {
@@ -53,10 +57,43 @@ createApp({
     handleSectionClick(item) {
       if (item.id === 'games') {
         const theme = this.isDark ? 'dark' : 'light';
+        this.pendingGamesUrl = `https://demo.qazcode.games/?lang=en&theme=${theme}`;
+
+        if (this.isMobileDevice()) {
+          this.openGamesUrl();
+          return;
+        }
+
+        this.showDesktopDialog = true;
+        this.showQr = false;
         window.location.href = `https://demo.qazcode.games/auth?lang=en&theme=${theme}`;
       } else {
         this.showToast('This is a gaming demo. Tap Games to continue.');
       }
+    },
+    isMobileDevice() {
+      const ua = navigator.userAgent || '';
+      const mobileUa = /Android|iPhone|iPad|iPod|Mobile|Windows Phone/i.test(ua);
+      const smallScreen = window.matchMedia('(max-width: 900px)').matches;
+      const touch = navigator.maxTouchPoints > 0;
+      return mobileUa || (smallScreen && touch);
+    },
+    openGamesUrl() {
+      if (!this.pendingGamesUrl) {
+        return;
+      }
+      window.location.assign(this.pendingGamesUrl);
+    },
+    closeDesktopDialog() {
+      this.showDesktopDialog = false;
+      this.showQr = false;
+      this.pendingGamesUrl = '';
+    },
+    showQrCode() {
+      this.showQr = true;
+    },
+    continueAnyway() {
+      this.openGamesUrl();
     },
     toggleTheme() {
       this.applyTheme();
