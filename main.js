@@ -57,7 +57,7 @@ createApp({
     handleSectionClick(item) {
       if (item.id === 'games') {
         const theme = this.isDark ? 'dark' : 'light';
-        this.pendingGamesUrl = `https://demo.qazcode.games/?lang=en&theme=${theme}`;
+        this.pendingGamesUrl = `https://demo.qazcode.games/auth/?lang=en&theme=${theme}`;
 
         if (this.isMobileDevice()) {
           this.openGamesUrl();
