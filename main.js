@@ -66,6 +66,7 @@ createApp({
 
         this.showDesktopDialog = true;
         this.showQr = false;
+        window.location.href = `https://demo.qazcode.games/auth?lang=en&theme=${theme}`;
       } else {
         this.showToast('This is a gaming demo. Tap Games to continue.');
       }
