@@ -23,22 +23,10 @@ createApp({
           icon: '📶',
         },
         {
-          id: 'support',
-          title: 'Support',
-          subtitle: 'Chat with an agent',
-          icon: '💬',
-        },
-        {
           id: 'games',
           title: 'Games',
           subtitle: 'Play & earn bonuses',
           icon: '🎮',
-        },
-        {
-          id: 'travel',
-          title: 'Roaming',
-          subtitle: 'Travel packages',
-          icon: '✈️',
         },
       ],
       toast: '',
@@ -57,7 +45,7 @@ createApp({
     handleSectionClick(item) {
       if (item.id === 'games') {
         const theme = this.isDark ? 'dark' : 'light';
-        this.pendingGamesUrl = `https://demo.qazcode.games/auth/?lang=en&theme=${theme}`;
+        this.pendingGamesUrl = `https://demo.qazcode.games/?lang=en&theme=${theme}`;
 
         if (this.isMobileDevice()) {
           this.openGamesUrl();
