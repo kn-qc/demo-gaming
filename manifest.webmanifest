@@ -1,0 +1,24 @@
+{
+  "name": "QazCode Demo",
+  "short_name": "QazCode",
+  "description": "Demo mobile-style telecom dashboard with gaming flow.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f2f4f8",
+  "theme_color": "#AADE3F",
+  "icons": [
+    {
+      "src": "/icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-maskable.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ]
+}
